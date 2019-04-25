@@ -1,0 +1,28 @@
+@import 'variables';
+
+.btn-base {
+  outline: 0;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0.8rem 1.1rem;
+  font-size: 1rem;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  border-radius: 8px;
+  transition: all 0.25s ease-in 0s;
+  background: transparent;
+  color: rgba(#fff, 0.7);
+  background: rgba(#fff, 0.12);
+  font-weight: 700;
+  letter-spacing: 0.00937em;
+  font-family: inherit;
+
+  &:hover {
+    color: #fff;
+    border-radius: 2px;
+    background: $alpine;
+  }
+}

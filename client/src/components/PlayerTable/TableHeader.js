@@ -12,11 +12,11 @@ const TableHeader = () => (
         <th role="columnheader" className="table__header table__player">
           Player
         </th>
-        <th role="columnheader" className="table__header table__winnings">
-          Winnings
-        </th>
         <th role="columnheader" className="table__header table__native">
           Native of
+        </th>
+        <th role="columnheader" className="table__header table__winnings">
+          Winnings
         </th>
       </tr>
     </thead>

@@ -1,14 +1,16 @@
 @import 'variables';
 
-$avatar-size: 2.5rem;
+$avatar-size: 2.75rem;
 
 .avatar {
-  border: 1px solid $fog;
+  border: 1px solid rgba($fog, 0.8);
   border-radius: 50%;
   display: inline-flex;
   height: $avatar-size;
   overflow: hidden;
   width: $avatar-size;
+  margin-top: 0.35rem;
+  margin-bottom: 0.35rem;
 
   img {
     height: auto;

@@ -1,9 +1,9 @@
 @import 'variables';
 
-$header-height: 2.5rem;
+$header-height: 3.2rem;
 
 .player-table {
-  margin-top: 3.5rem;
+  margin-top: $navbar-height;
   padding-top: calc(#{$header-height} + 1px); // 1px for border of header
 }
 
@@ -13,12 +13,12 @@ $header-height: 2.5rem;
   width: 100%;
 
   &--fixed {
-    background-color: $pearl;
-    border-bottom: 1px solid $fog;
+    background-color: $lighterpearl;
     left: 0;
     position: fixed;
-    top: 3.5rem;
+    top: $navbar-height;
     z-index: 1;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05), 0 0px 20px rgba(0, 0, 0, 0.09);
   }
 
   &--body {
@@ -60,7 +60,7 @@ $header-height: 2.5rem;
   &__winnings {
     padding-right: 1.5rem;
     text-align: right;
-    width: 8rem;
+    width: 10rem;
   }
 
   &__native {
@@ -74,6 +74,10 @@ $header-height: 2.5rem;
   height: 100%;
 
   .avatar {
-    margin-right: 0.5rem;
+    border: 0;
+    border-radius: 0;
+    height: 2rem;
+    width: 2rem;
+    margin-right: 0.8rem;
   }
 }

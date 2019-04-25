@@ -4,6 +4,7 @@ html {
   background-color: #fafafa;
   color: rgba($sleeping-panther, 0.87);
   font-family: Montserrat, sans-serif;
+  font-size: 14px;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
@@ -16,4 +17,11 @@ body {
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
