@@ -2,7 +2,7 @@
 
 html {
   background-color: #fafafa;
-  color: rgba($sleeping-panther, 0.87);
+  color: $black87;
   font-family: Montserrat, sans-serif;
   font-size: 14px;
   -moz-osx-font-smoothing: grayscale;
@@ -11,6 +11,19 @@ html {
 
 body {
   margin: 0;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #fff;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: 0;
+    background-color: #000;
+  }
 }
 
 *,
@@ -24,4 +37,11 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.error-box {
+  background: rgba($error, 0.1);
+  padding: 1rem;
+  color: $error;
+  margin: 1rem 0;
 }

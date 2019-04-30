@@ -31,5 +31,8 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "dependencies": {
+    "classnames": "^2.2.6"
   }
 }
