@@ -1,28 +1,76 @@
 @import 'variables';
 
-.btn-base {
+.btn {
   outline: 0;
   border: 0;
-  border-radius: 4px;
   cursor: pointer;
-  padding: 0.8rem 1.1rem;
+  padding: 0.5rem 1.1rem;
   font-size: 1rem;
   border-width: 0px;
   border-style: initial;
   border-color: initial;
   border-image: initial;
-  border-radius: 8px;
-  transition: all 0.25s ease-in 0s;
+  border-radius: 0px;
+  transition: all $transition-ease-in;
   background: transparent;
   color: rgba(#fff, 0.7);
   background: rgba(#fff, 0.12);
   font-weight: 700;
   letter-spacing: 0.00937em;
   font-family: inherit;
+  line-height: 1.75;
+  user-select: none;
 
   &:hover {
     color: #fff;
-    border-radius: 2px;
+    // border-radius: 2px;
     background: $alpine;
+  }
+
+  &--outlined {
+    border: 1px solid $black87;
+    color: $black87;
+    background: transparent;
+
+    &:hover {
+      color: $snow;
+      background: $black87;
+    }
+
+    &.btn--error {
+      border-color: $error;
+      color: $error;
+    }
+  }
+
+  &--flat {
+    color: $black87;
+
+    &:hover {
+      color: $snow;
+      background: $black87;
+    }
+  }
+
+  &--dark {
+    color: #fff;
+  }
+
+  &.btn--primary:hover {
+    color: $snow;
+    border-color: $primary;
+    background: $primary;
+  }
+
+  &.btn--error:hover {
+    color: $snow;
+    border-color: $error;
+    background: $error;
+  }
+
+  &.btn--success:hover {
+    color: $snow;
+    border-color: $success;
+    background: $success;
   }
 }
