@@ -1,5 +1,9 @@
 /// @group color-palette
 
+$black32: rgba(0, 0, 0, 0.32);
+$black54: rgba(0, 0, 0, 0.54);
+$black87: rgba(0, 0, 0, 0.87);
+
 // greyscale palette from dark to light
 $sleeping-panther: #000;
 $charcoal: #2e3943;
@@ -22,5 +26,13 @@ $merlot: #b74780;
 $sunset: #f364ba;
 $palisade: #ff7979;
 
-// Measures
-$navbar-height: 4.2rem;
+// state colors
+$primary: $alpine;
+$error: #d04a4a;
+$success: #82c74e;
+
+// Transitions
+$transition-ease-in: 0.15s ease-in;
+
+// Sizes
+$navbar-height: 4.6rem;
