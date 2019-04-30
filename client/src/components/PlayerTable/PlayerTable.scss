@@ -1,10 +1,20 @@
 @import 'variables';
 
 $header-height: 3.2rem;
+$subheader-height: 4rem;
 
 .player-table {
   margin-top: $navbar-height;
   padding-top: calc(#{$header-height} + 1px); // 1px for border of header
+  transition: all $transition-ease-in;
+
+  &--has-selected {
+    padding-top: calc(#{$subheader-height} + #{$header-height} + 1px);
+
+    & .table--fixed {
+      top: calc(#{$subheader-height} + #{$navbar-height});
+    }
+  }
 }
 
 .table {
@@ -13,7 +23,8 @@ $header-height: 3.2rem;
   width: 100%;
 
   &--fixed {
-    background-color: $lighterpearl;
+    transition: all $transition-ease-in;
+    background-color: rgba($lighterpearl, 0.95);
     left: 0;
     position: fixed;
     top: $navbar-height;
@@ -28,13 +39,24 @@ $header-height: 3.2rem;
   &__row {
     background-color: $snow;
     transition: background-color 0.15s;
+    color: $black87;
+    cursor: pointer;
 
     &:hover {
-      background-color: $pearl;
+      background-color: rgba(189, 208, 239, 0.05);
     }
 
     &:not(:last-child) {
-      border-bottom: 1px solid $pearl;
+      border-bottom: 1px dotted rgba(0, 0, 0, 0.06);
+    }
+  }
+
+  &__selected {
+    background: rgba(214, 230, 255, 0.35);
+    color: $graphite;
+
+    &:hover {
+      background: rgba(214, 230, 255, 0.45);
     }
   }
 
@@ -57,6 +79,11 @@ $header-height: 3.2rem;
     width: 100%;
   }
 
+  &__created-at {
+    padding-right: 1.5rem;
+    width: 20rem;
+  }
+
   &__winnings {
     padding-right: 1.5rem;
     text-align: right;
@@ -65,6 +92,52 @@ $header-height: 3.2rem;
 
   &__native {
     width: 6rem;
+  }
+}
+
+.subheader {
+  z-index: 2;
+  height: $subheader-height;
+  position: fixed;
+  top: $navbar-height;
+  left: 0;
+  right: 0;
+  background: rgba($fog, 0.95);
+  color: $black87;
+  transition: all $transition-ease-in;
+  opacity: 0.4;
+  max-height: 0;
+  overflow: hidden;
+
+  &.visible {
+    opacity: 1;
+    max-height: $subheader-height;
+  }
+
+  &__container {
+    position: relative;
+    height: 100%;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+
+    & > span {
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__action {
+    margin-right: 0.5rem;
+
+    &:last-child {
+      margin: 0;
+    }
   }
 }
 
