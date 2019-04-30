@@ -35,6 +35,16 @@ class PlayersController {
     }
 
     createSortingFunction(sortBy, sortOrder) {
+        if (sortBy === 'createdAt') {
+            return (a, b) => {
+                if (sortOrder === SORT_ORDER_DESC) {
+                    return a[sortBy] > b[sortBy] ? -1 : 1;
+                } else {
+                    return a[sortBy] > b[sortBy] ? 1 : -1;
+                }
+            };
+        }
+
         if (sortBy === 'winnings') {
             return (a, b) => {
                 if (sortOrder === SORT_ORDER_DESC) {
@@ -43,25 +53,25 @@ class PlayersController {
                     return a[sortBy] - b[sortBy];
                 }
             };
-        } else {
-            return (a, b) => {
-                const vA = a[sortBy].toUpperCase();
-                const vB = b[sortBy].toUpperCase();
-                if (sortOrder === SORT_ORDER_DESC) {
-                    if (vA > vB) return -1;
-                    else if (vA < vB) return 1;
-                    else return 0;
-                } else {
-                    if (vA < vB) return -1;
-                    else if (vA > vB) return 1;
-                    else return 0;
-                }
-            };
         }
+
+        return (a, b) => {
+            const vA = a[sortBy].toUpperCase();
+            const vB = b[sortBy].toUpperCase();
+            if (sortOrder === SORT_ORDER_DESC) {
+                if (vA > vB) return -1;
+                else if (vA < vB) return 1;
+                else return 0;
+            } else {
+                if (vA < vB) return -1;
+                else if (vA > vB) return 1;
+                else return 0;
+            }
+        };
     }
 
     getAll(params = {}) {
-        const { sortBy, sortOrder, from, size } = Object.assign({}, PLAYER_LIST_DEFAULTS, params);
+        const { sortBy = 'createdAt', sortOrder = SORT_ORDER_DESC, from, size } = Object.assign({}, PLAYER_LIST_DEFAULTS, params);
         const data = this.readData();
         const dataArr = Object.values(data);
         if (sortBy && sortOrder) {
@@ -87,12 +97,17 @@ class PlayersController {
     create(record, validate = true) {
         const data = this.readData();
         const player = Object.assign({}, record, { id: uuid() });
+
         if (!record.imageUrl) {
             player.imageUrl = `http://i.pravatar.cc/40?u=${player.id}`;
         }
+
         if (validate) {
             this.validate(player);
         }
+
+        player.createdAt = new Date().toISOString();
+
         data[player.id] = player;
         this.writeData(data);
         return player;
