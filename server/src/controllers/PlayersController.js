@@ -11,7 +11,8 @@ class PlayersController {
             name: Joi.string().required(),
             country: Joi.string().valid(COUNTRIES).required(),
             winnings: Joi.number().required(),
-            imageUrl: Joi.string().uri().optional().allow(null).default(null)
+            imageUrl: Joi.string().uri().optional().allow(null).default(null),
+            createdAt: Joi.date().iso().required()
         });
     }
 
@@ -102,11 +103,11 @@ class PlayersController {
             player.imageUrl = `http://i.pravatar.cc/40?u=${player.id}`;
         }
 
+        player.createdAt = new Date().toISOString();
+
         if (validate) {
             this.validate(player);
         }
-
-        player.createdAt = new Date().toISOString();
 
         data[player.id] = player;
         this.writeData(data);
